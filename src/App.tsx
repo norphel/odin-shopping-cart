@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
+import Products from "./components/Home";
 
 function App() {
-  const [numberOfItemsInCart, setNumberOfItemsInCart] = useState<number>(0);
+  const [cartItems, setCartItems] = useState([]);
   return (
     <>
-      <Header numberOfItemsInCart={numberOfItemsInCart} />
+      <Header numberOfItemsInCart={cartItems.length} />
+      <Products />
     </>
   );
 }
