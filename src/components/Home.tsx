@@ -75,9 +75,11 @@ const Products = () => {
 
   return (
     <main>
-      {allProducts.map((product: Product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6 p-6 xl:px-0">
+        {allProducts.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </main>
   );
 };
