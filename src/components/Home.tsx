@@ -18,13 +18,21 @@ interface CardProp {
 
 const ProductCard = ({ product }: CardProp) => {
   return (
-    <div className="flex flex-col border p-2">
-      <img src={product.thumbnail} alt={`${product.title} thumbnail`} />
-      <div>
-        <p>{product.title}</p>
-        <p>{product.description}</p>
-        <p>{`$${product.price}`}</p>
-        <p>{product.rating} / 5</p>
+    <div className="flex flex-col border p-2 gap-2 hover:cursor-pointer">
+      <img
+        src={product.thumbnail}
+        alt={`${product.title} thumbnail`}
+        className="min-h-40 max-h-40 object-cover object-center"
+      />
+      <div className="flex flex-col justify-between h-full">
+        <p className="text-xl md:text-2xl lg:text-3xl text-slate-800">
+          {product.title}
+        </p>
+        <p className="text-sm text-slate-600 italic max-h-10 overflow-clip">
+          {product.description}
+        </p>
+        <p className="text-lg md:text-xl lg:text-2xl">{`$${product.price}`}</p>
+        <p>{product.rating}</p>
       </div>
     </div>
   );
@@ -44,7 +52,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=10", { mode: "cors" })
+    fetch("https://dummyjson.com/products?limit=100", { mode: "cors" })
       .then((response) => {
         if (response.status >= 400) {
           throw new Error("server error");
@@ -75,7 +83,7 @@ const Products = () => {
 
   return (
     <main>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6 p-6 xl:px-0">
+      <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6 p-6 xl:px-0">
         {allProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
