@@ -24,15 +24,14 @@ const ProductCard = ({ product }: CardProp) => {
         alt={`${product.title} thumbnail`}
         className="min-h-40 max-h-40 object-cover object-center"
       />
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between h-full gap-4">
         <p className="text-xl md:text-2xl lg:text-3xl text-slate-800">
           {product.title}
         </p>
-        <p className="text-sm text-slate-600 italic max-h-10 overflow-clip">
-          {product.description}
-        </p>
-        <p className="text-lg md:text-xl lg:text-2xl">{`$${product.price}`}</p>
-        <p>{product.rating}</p>
+        <div className="flex justify-between items-center">
+          <p className="text-lg md:text-xl lg:text-2xl">{`$${product.price}`}</p>
+          <p>{product.rating}</p>
+        </div>
       </div>
     </div>
   );
