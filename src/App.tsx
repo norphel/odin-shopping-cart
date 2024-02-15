@@ -4,10 +4,10 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
   return (
     <>
-      <Header numberOfItemsInCart={cartItems.length} />
+      <Header numberOfItemsInCart={cart.length} />
       <Outlet />
     </>
   );

@@ -1,19 +1,8 @@
 import { useEffect, useState } from "react";
+import { Product } from "./types";
 
 interface CardProp {
-  product: {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    brand: string;
-    category: string;
-    rating: number;
-    stock: number;
-    thumbnail: string;
-    images: string[];
-  };
+  product: Product;
 }
 
 const ProductCard = ({ product }: CardProp) => {
@@ -65,20 +54,6 @@ const Products = () => {
 
   if (loading) return <LoadingSpinner />;
   if (error) return <p>A network error was encountered</p>;
-
-  interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    brand: string;
-    category: string;
-    rating: number;
-    stock: number;
-    thumbnail: string;
-    images: string[];
-  }
 
   return (
     <main>
