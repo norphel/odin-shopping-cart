@@ -1,5 +1,6 @@
 import { Product } from "../types";
 import { useLocation } from "react-router-dom";
+import ImageCarousel from "./ImageCarousel";
 
 export default function ProductPage() {
   const { state } = useLocation();
@@ -10,10 +11,10 @@ export default function ProductPage() {
   }
 
   const { product } = state as { product: Product };
+  console.log(product.images);
   return (
-    <>
-      <h2>{product.title}</h2>
-      <img src={product.thumbnail} alt={`image of ${product.title}`} />
-    </>
+    <main>
+      <ImageCarousel images={product.images} />
+    </main>
   );
 }
