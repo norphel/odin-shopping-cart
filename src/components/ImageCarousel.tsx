@@ -28,7 +28,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
   }, [activeIndex]);
 
   return (
-    <div className="relative max-h-80 max-w-80 sm:max-w-md md:max-w-lg lg: lg:max-w-xl">
+    <div className="relative max-h-80 max-w-[570px]">
       <img
         src={images[activeIndex]}
         alt={`Slide ${activeIndex + 1}`}
