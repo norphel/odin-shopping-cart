@@ -17,7 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path={"/products/:product_id"} element={<ProductPage />} />
+          <Route
+            path={"/products/:product_id"}
+            element={<ProductPage cartItems={cart} setCart={setCart} />}
+          />
           <Route
             path="/cart"
             element={<Cart cartItems={cart} setCart={setCart} />}
